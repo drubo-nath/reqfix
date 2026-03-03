@@ -62,40 +62,6 @@ export default function Hero() {
             Zero phone calls. Zero paperwork. Total automation.
           </p>
 
-          {/* Waitlist Form */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col items-start w-full max-w-md gap-4"
-          >
-            {!submitted ? (
-              <form onSubmit={handleSubmit} className="relative flex w-full items-center">
-                <input 
-                  type="email" 
-                  required
-                  placeholder="Enter your email" 
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full h-14 pl-6 pr-44 rounded-full bg-white/5 border border-white/10 text-white placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#034f46] focus:bg-white/10 transition-all shadow-xl text-lg font-sans" 
-                />
-                <div className="absolute right-1 top-1.5 button-wrapper">
-                  <AnimatedShinyButton className="!bg-[#034f46] !text-white !h-11 !px-6 !rounded-full text-sm">
-                    Join Waitlist
-                  </AnimatedShinyButton>
-                </div>
-              </form>
-            ) : (
-              <div className="flex items-center gap-2 text-emerald-400 bg-emerald-400/10 px-6 py-3 rounded-full border border-emerald-400/20 animate-in fade-in zoom-in duration-300">
-                <Sparkles className="w-5 h-5" />
-                <span className="font-medium">You're on the list! We'll be in touch.</span>
-              </div>
-            )}
-            
-            <p className="text-xs text-neutral-500 mt-2 font-serif italic">
-              Limited spots available for Q2 2026 pilot program.
-            </p>
-          </motion.div>
         </div>
 
         {/* Right Column: 3D Globe */}

@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body
         className={`${GeistSans.variable} ${fraunces.variable} antialiased selection:bg-emerald-500/30 font-sans`}
-      >
+      > 
         {children}
       </body>
     </html>

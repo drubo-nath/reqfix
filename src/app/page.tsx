@@ -1,9 +1,8 @@
-import { Navbar } from "@/components/Navbar";
+import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Workflow from "@/components/Workflow";
 import Problem from "@/components/Problem";
 import Features from "@/components/Features";
-
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -12,6 +11,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Workflow />
+      <Features />
       <Footer />
     </main>
   );

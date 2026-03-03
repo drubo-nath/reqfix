@@ -14,7 +14,7 @@ const menuItems = [
   { name: "Benefits", href: "#benefits" },
 ]
 
-const Navbar = () => {
+export default function Navbar() {
   const [menuState, setMenuState] = React.useState(false)
   const [isScrolled, setIsScrolled] = React.useState(false)
 
@@ -81,4 +81,4 @@ const Navbar = () => {
   )
 }
 
-export { Navbar }
+

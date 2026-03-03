@@ -487,7 +487,7 @@ export default function Workflow() {
         className="relative z-10 w-full h-[440px] pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse 100% 50% at 50% 4%,  rgb(49, 170, 154) 38%, rgb(39, 162, 146) 50%, rgb(31, 136, 122) 60%, #187266 68%, #0a6256 75%, #022e28 86%, #000000 100%)',
+            'radial-gradient(ellipse 150% 50% at 50% 1%,  rgb(49, 170, 154) 38%, rgb(39, 162, 146) 50%, #187266 68%, #0a6256 75%, #022e28 86%, #000000 100%)',
         }}
       />
 
@@ -504,11 +504,11 @@ export default function Workflow() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="mb-24 md:mb-32 flex flex-col items-center text-center sm:mt-16"
         >
-          <span className="text-[#056058] text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
+          {/* <span className="text-[#056058] text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
             Workflow
-          </span>
-          <h2 className="text-5xl md:text-7xl font-serif text-white tracking-tight">
-            Our <span className="italic text-white/90">Process</span>
+          </span> */}
+          <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
+            How it <span className=" text-[#056058]">Works</span>
           </h2>
         </motion.div>
 
