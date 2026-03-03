@@ -11,6 +11,8 @@
   
   /* Keep Geist for small UI text, use Canela for headings */
   --font-sans: var(--font-geist-sans), "Inter", sans-serif;
+
+  
   --color-primary: #034f46;
   --color-background: #fbfbe7;
   --color-black: #000000;

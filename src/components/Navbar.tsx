@@ -30,7 +30,7 @@ export default function Navbar() {
       <nav
         data-state={menuState && "active"}
         className={cn(
-          "fixed z-50 w-full px-3 transition-colors duration-300 md:px-4 ",
+          "fixed z-50 w-full px-3 transition-colors duration-300 md:px-10 ",
           isScrolled ? "border-transparent mt-5" : "border-b"
         )}
       >
@@ -59,9 +59,30 @@ export default function Navbar() {
                   aria-label={menuState == true ? "Close Menu" : "Open Menu"}
                   className="relative z-20 block cursor-pointer p-2.5 pr-4 lg:hidden"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 32 32">
-                    <path d="M 4 7 L 4 9 L 28 9 L 28 7 Z M 4 15 L 4 17 L 28 17 L 28 15 Z M 4 23 L 4 25 L 28 25 L 28 23 Z"></path>
+                  {menuState ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 32 32" fill="none">
+                    <g stroke="white" stroke-width="2" stroke-linecap="round">
+                      <line x1="8" y1="10" x2="25" y2="10"/>
+                      <line x1="15" y1="16" x2="25" y2="16"/>
+                      <line x1="12" y1="22" x2="25" y2="22"/>
+                    </g>
                   </svg>
+                  )}
                   <span className="sr-only">Toggle menu</span>
                 </button>
               </div>

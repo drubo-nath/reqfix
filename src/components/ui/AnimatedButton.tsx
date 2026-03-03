@@ -47,8 +47,8 @@ export function AnimatedShinyButton({
           --shiny-cta-bg: #000000;
           --shiny-cta-bg-subtle: #1a1818;
           --shiny-cta-fg: #ffffff;
-          --shiny-cta-highlight: #187167;
-          --shiny-cta-highlight-subtle: #187167;
+          --shiny-cta-highlight: #24a294;
+          --shiny-cta-highlight-subtle: #034f46;
           --animation: gradient-angle linear infinite;
           --duration: 3s;
           --shadow-size: 2px;
@@ -225,17 +225,6 @@ export function AnimatedShinyButton({
             scale: 1.2;
           }
         }
-
-        /* Light theme overrides */
-        @media (prefers-color-scheme: light) {
-          .shiny-cta,
-          .shiny-cta-link {
-            --shiny-cta-bg: #ffffff;
-            --shiny-cta-bg-subtle: #f0f0f0;
-            --shiny-cta-fg: #000000;
-            --shiny-cta-highlight: #034f46;
-            --shiny-cta-highlight-subtle: #063832;
-          }
         }
       `}</style>
 

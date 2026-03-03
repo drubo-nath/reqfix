@@ -20,14 +20,13 @@ const data = () => ({
     
     ],
     company: [
-      { name: 'About', href: '/about' },
       { name: 'Workflow', href: '#workflow' },
-      { name: 'Benefits', href: '/benefits' },
+      { name: 'Features', href: '#features' },
+      { name: 'Benefits', href: '#benefits' },
     ],
     legal: [
       { name: 'Privacy', href: '/privacy' },
       { name: 'Terms', href: '/terms' },
-      { name: 'Cookie Policy', href: '/cookies' },
     ],
   },
   socialLinks: [

@@ -132,7 +132,7 @@ export default function Globe3DHero() {
   }, []);
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center pointer-events-none md:pointer-events-auto">
+    <div className="relative w-full h-full flex items-center justify-center pointer-events-none md:pointer-events-auto my-0 md:my-20">
       {/* 3D Globe Background */}
       <div className="absolute inset-0 z-0">
         <Globe3D

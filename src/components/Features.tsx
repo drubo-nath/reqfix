@@ -33,7 +33,7 @@ export default function Features() {
   ]
 
   return (
-    <section className="relative flex min-h-svh w-full flex-col items-center justify-center overflow-hidden py-10 py-5">
+    <section className="relative flex min-h-svh w-full flex-col items-center justify-center overflow-hidden py-10 py-5" id='features'>
       <div
         className="absolute inset-0 z-0"
         style={{
@@ -64,7 +64,7 @@ export default function Features() {
       <div className="relative z-10 container">
         <div className="max-w-xl sm:text-center md:mx-auto">
           <h3 className="text-4xl font-bold tracking-tighter sm:text-5xl text-white mx-5">
-            Why Modern Properties Choose <span className="text-[#056058]">ReqFix</span>
+            Why Modern Landlords Choose <span className="text-[#056058]">ReqFix</span>
           </h3>
         </div>
         <div className="mt-12">

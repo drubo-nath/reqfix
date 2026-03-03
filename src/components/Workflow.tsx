@@ -471,7 +471,7 @@ export default function Workflow() {
   }, []);
 
   return (
-    <section id="workflow" className="relative bg-black pb-0 pt-0 z-0">
+    <section className="relative bg-black pb-20 md:pb-40 pt-0 z-0">
       {/* 
         Ensure seamless transition into black by bleeding the exact same gradient
       */}
@@ -507,20 +507,20 @@ export default function Workflow() {
           {/* <span className="text-[#056058] text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
             Workflow
           </span> */}
-          <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
-            How it <span className=" text-[#056058]">Works</span>
-          </h2>
+           <h3 className="text-5xl font-bold tracking-tighter sm:text-6xl text-white mx-5">
+            How it <span className=" text-[#034f46]">Works</span>
+          </h3>
         </motion.div>
 
         {/* Two-column scroll area */}
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 relative items-start">
 
           {/* LEFT: Sticky animated visual panel */}
-          <div className="md:w-[55%] w-full sticky top-32 z-10">
-            <div className="bg-[#0a0a0a] rounded-3xl border border-white/[0.1] overflow-hidden shadow-2xl ring-1 ring-white/5">
-              <div className="p-8 md:p-10 min-h-[420px] md:min-h-[460px] flex items-center justify-center relative bg-[url('/noise.png')] opacity-100">
+          <div className="md:w-[55%] w-full sticky top-24 md:top-32 z-10 h-[45vh] md:h-auto mb-10 md:mb-0">
+            <div className="bg-[#0a0a0a] rounded-3xl border border-white/[0.1] overflow-hidden shadow-2xl ring-1 ring-white/5 h-full md:h-auto">
+              <div className="p-4 md:p-10 h-full md:min-h-[460px] flex items-center justify-center relative bg-[url('/noise.png')] opacity-100">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
-                <div className="relative z-10 w-full overflow-hidden">
+                <div className="relative z-10 w-full overflow-hidden scale-[0.85] md:scale-100 origin-center">
                   <ChatScene activeStep={activeStep} />
                 </div>
               </div>
@@ -528,20 +528,20 @@ export default function Workflow() {
           </div>
 
           {/* RIGHT: Scrollable step descriptions */}
-          <div className="md:w-[45%] w-full md:pt-0 md:pb-[40vh] flex flex-col relative z-20">
+          <div className="md:w-[45%] w-full flex flex-col relative z-20 pb-[20vh] md:pb-[40vh]">
             {steps.map((step, i) => (
               <div
                 key={i}
                 ref={(el) => {
                   if (el) stepRefs.current[i] = el;
                 }}
-                className="flex items-center w-full min-h-[60vh] md:min-h-[75vh]"
+                className="flex items-end md:items-center w-full min-h-[60vh] md:min-h-[75vh] pb-16 md:pb-0"
               >
-                <div className={`transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform w-full max-w-lg ${activeStep === i
-                  ? "opacity-100 scale-100 translate-y-0"
-                  : "opacity-20 scale-[0.98] translate-y-8"
+                <div className={`transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform w-full max-w-lg p-6 md:p-0 rounded-2xl md:rounded-none ${activeStep === i
+                  ? "opacity-100 scale-100 translate-y-0 bg-black/60 md:bg-transparent backdrop-blur-md md:backdrop-blur-none border border-white/10 md:border-none"
+                  : "opacity-0 scale-[0.98] translate-y-8"
                   }`}>
-                  <span className={`text-xs font-serif italic tracking-widest uppercase mb-4 block transition-colors duration-500 ${activeStep === i ? "text-[#056058]" : "text-white/20"
+                  <span className={`text-xs font-serif italic tracking-widest uppercase mb-4 block transition-colors duration-500 ${activeStep === i ? "text-white font-bold" : "text-white/20"
                     }`}>
                     Step {String(i + 1).padStart(2, "0")}
                   </span>

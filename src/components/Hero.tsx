@@ -50,9 +50,9 @@ export default function Hero() {
           </motion.div>
 
 
-          <h1 className="text-5xl lg:text-7xl font-serif font-medium tracking-tight text-white leading-[1.1] mb-6">
+          <h1 className="text-5xl lg:text-7xl font-serif font-bold tracking-tight text-white leading-[1.1] mb-6">
             Maintenance <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-600 font-serif italic pr-2">
+            <span className="text-[#034f46] from-emerald-400 to-emerald-600 font-canela pr-2 ">
               Solved by AI.
             </span>
           </h1>
