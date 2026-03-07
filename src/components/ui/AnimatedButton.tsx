@@ -2,6 +2,7 @@
 
 import type React from "react"
 import { ChevronRight } from "lucide-react"
+import Link from "next/link"
 
 interface AnimatedShinyButtonProps {
   children: React.ReactNode
@@ -229,17 +230,16 @@ export function AnimatedShinyButton({
       `}</style>
 
       {url ? (
-        <a href={url} className={`shiny-cta-link group ${className}`}>
+        <Link href={url} className={`shiny-cta-link group ${className}`}>
           <span className="flex items-center">
             {children}
             <ChevronRight className="ml-1 size-4 shrink-0 transition-all duration-300 ease-out group-hover:translate-x-1" />
           </span>
-        </a>
+        </Link>
       ) : (
         <button className={`shiny-cta group ${className}`}>
           <span className="flex items-center">
             {children}
-            <ChevronRight className="ml-1 size-4 shrink-0 transition-all duration-300 ease-out group-hover:translate-x-1" />
           </span>
         </button>
       )}

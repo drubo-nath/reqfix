@@ -76,7 +76,7 @@ export default function Navbar() {
                     </svg>
                   ) : (
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 32 32" fill="none">
-                    <g stroke="white" stroke-width="2" stroke-linecap="round">
+                    <g stroke="white" strokeWidth="2" strokeLinecap="round">
                       <line x1="8" y1="10" x2="25" y2="10"/>
                       <line x1="15" y1="16" x2="25" y2="16"/>
                       <line x1="12" y1="22" x2="25" y2="22"/>

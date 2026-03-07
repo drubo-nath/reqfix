@@ -2,21 +2,35 @@
 
 import React, { useState } from "react"
 import { motion } from "framer-motion"
-import { ArrowRight, Sparkles } from "lucide-react"
+import { ArrowRight, ChevronRight, Sparkles } from "lucide-react"
 import Globe3DHero from "@/components/ui/hero_globe"
 import { AnimatedShinyButton } from "./ui/AnimatedButton"
 
-export default function Hero() {
+import { joinWaitlist } from "@/app/actions/waitlist"
+
+export default function Hero({session}: {session: any}) {
   const [email, setEmail] = useState("")
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [message, setMessage] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (email) {
+    if (!email) return
+
+    setLoading(true)
+    setMessage("")
+
+    const result = await joinWaitlist(email)
+
+    if (result.success) {
       setSubmitted(true)
-      // TODO: Connect to backend or analytics
-      console.log("Joined waitlist:", email)
+      setMessage(result.message || "Success!")
+    } else {
+      setMessage(result.error || "Something went wrong.")
     }
+
+    setLoading(false)
   }
 
   return (
@@ -30,11 +44,11 @@ export default function Hero() {
 
       {/* Main Content Container */}
       <div className="container mx-auto px-4 md:px-6 flex flex-col lg:flex-row items-center h-full gap-12 lg:gap-0">
-        
+
         {/* Left Column: Text Content */}
         <div className="flex flex-col items-start lg:items-start text-left w-full lg:w-1/2 z-20 pl-0 lg:pl-16 pt-10 lg:pt-0">
           {/* Animated Badge */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -56,23 +70,67 @@ export default function Hero() {
               Solved by AI.
             </span>
           </h1>
-          
+
           <p className="text-lg text-neutral-400 max-w-lg leading-relaxed mb-8 font-sans font-light">
             We are building the operating system for modern property management.
             Zero phone calls. Zero paperwork. Total automation.
           </p>
 
+          <div className="w-full max-w-md">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col items-start w-full max-w-md gap-4"
+            >
+              {session?.user?.email ? (
+                <div className="flex items-center gap-3 text-emerald-400 bg-emerald-400/10 px-6 py-4 rounded-full border border-emerald-400/20 animate-in fade-in zoom-in duration-300">
+                  <Sparkles className="w-5 h-5 flex-shrink-0" />
+                  <p className="text-sm font-sans text-emerald-50">
+                    You're on the list as <span className="font-medium text-emerald-400">{session.user.email}</span>
+                  </p>
+                </div>
+              ) : !submitted ? (
+                <form onSubmit={handleSubmit} className="relative flex w-full items-center">
+                  <input
+                    type="email"
+                    required
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full h-14 pl-6 pr-44 rounded-full bg-white/5 border border-white/10 text-white placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#034f46] focus:bg-white/10 transition-all shadow-xl text-lg font-sans"
+                  />
+                  <div className="absolute right-1 top-1.5 button-wrapper">
+                    <AnimatedShinyButton className="!bg-[#034f46] !text-white !h-11 !px-6 !rounded-full text-sm">
+                      {loading ? "Joining..." : submitted ? "Joined!" : "Join Waitlist"}
+                      {!loading && !submitted &&  <ChevronRight className="ml-1 size-4 shrink-0 transition-all duration-300 ease-out group-hover:translate-x-1" />}
+                    </AnimatedShinyButton>
+                  </div>
+                </form>
+              ) : (
+                <div className="flex items-center gap-2 text-emerald-400 bg-emerald-400/10 px-6 py-3 rounded-full border border-emerald-400/20 animate-in fade-in zoom-in duration-300">
+                  <Sparkles className="w-5 h-5" />
+                  {message && (
+                    <p className={`text-sm font-sans ${submitted ? "text-emerald-400" : "text-red-400"}`}>
+                      {message}
+                    </p>
+                  )}
+                </div>
+              )}
+
+            </motion.div>
+          </div>
         </div>
 
         {/* Right Column: 3D Globe */}
         <div className="w-full lg:w-1/2 h-[50vh] lg:h-[85vh] relative z-10 flex items-center justify-center">
-           {/* 
+          {/* 
               In split layout, we want the globe to be fully visible on the right.
               We adjust the mask to be softer or remove it.
            */}
-           <div className="w-full h-full relative">
-              <Globe3DHero />
-           </div>
+          <div className="w-full h-full relative">
+            <Globe3DHero />
+          </div>
         </div>
       </div>
 
