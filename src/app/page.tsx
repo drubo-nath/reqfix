@@ -4,12 +4,21 @@ import Workflow from "@/components/Workflow";
 import Problem from "@/components/Problem";
 import Features from "@/components/Features";
 import Footer from "@/components/Footer";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
-export default function Home() {
+
+
+export default async function Home() {
+
+    const session = await auth.api.getSession({
+      headers: await headers(),
+    });
+  
   return (
     <main className="min-h-screen text-black selection:bg-[#034f46] selection:text-[#fbfbe7]">
       <Navbar />
-      <Hero />
+      <Hero session={session} />
       <Workflow />
       <Features />
       <Footer />
