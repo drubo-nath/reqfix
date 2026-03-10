@@ -508,7 +508,7 @@ export default function Workflow() {
             Workflow
           </span> */}
            <h3 className="text-5xl font-bold tracking-tighter sm:text-6xl text-white mx-5">
-            How it <span className=" text-[#034f46]">Works</span>
+            How it <span className=" text-[#034f46]" id="workflow" >Works</span>
           </h3>
         </motion.div>
 

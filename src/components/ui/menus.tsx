@@ -23,7 +23,7 @@ export function Menus() {
             asChild
             className={cn(
               navigationMenuTriggerStyle(),
-              "bg-transparent text-sm font-semibold text-white"
+              "bg-transparent text-sm font-semibold text-white hover:bg-white/10"
             )}
           >
             <a href="#workflow">Workflow</a>

@@ -152,7 +152,7 @@ export default function Globe3DHero() {
 
       {/* Floating Animated Bubbles - Repositioned for Center Hero Layout */}
       {/* Hidden on mobile to keep the focused MVP layout clean */}
-      <div className="absolute top-[20%] right-[5%] z-10 w-auto max-w-xs pointer-events-none hidden lg:block">
+      <div className="absolute top-[20%] right-[5%] z-10 w-auto max-w-xs pointer-events-none">
         <AnimatePresence mode="popLayout">
           <motion.div
             key={currentIssue}
