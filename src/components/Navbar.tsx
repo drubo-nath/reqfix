@@ -18,6 +18,15 @@ export default function Navbar() {
   const [menuState, setMenuState] = React.useState(false)
   const [isScrolled, setIsScrolled] = React.useState(false)
 
+  const handleWaitlistClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const target = document.getElementById("waitlist")
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+    setMenuState(false)
+  }
+
   React.useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 4)
@@ -119,7 +128,11 @@ export default function Navbar() {
 
               {/* CTA — visible on both mobile & desktop */}
               <div className="lg:m-0">
-                <AnimatedShinyButton>Join Waitlist</AnimatedShinyButton>
+                <Link href="#waitlist" onClick={handleWaitlistClick}>
+                  <AnimatedShinyButton className="shiny-cta-link">
+                    Join Waitlist
+                  </AnimatedShinyButton>
+                </Link>
               </div>
             </div>
           </div>

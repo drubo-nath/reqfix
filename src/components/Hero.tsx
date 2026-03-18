@@ -203,7 +203,7 @@ function PhoneMockup() {
                     {msg.type === "image" && (
                       <div className="flex justify-end">
                         <div className="rounded-2xl rounded-br-sm overflow-hidden" style={{ width: "165px", background: "rgba(255,255,255,0.05)" }}>
-                          <Image src='/leak.png' alt="Leak detected" width={165} height={120} className="object-cover" />
+                          <Image src='/leak1.png' alt="Leak detected" width={165} height={120} className="object-cover" />
                         </div>
                       </div>
                     )}
@@ -316,7 +316,7 @@ export default function Hero({ session }: { session: any }) {
   }
 
   return (
-    <section className="relative w-full min-h-[100dvh] flex flex-col lg:flex-row items-center justify-between overflow-hidden bg-[#020808] text-white pt-28 pb-12 lg:pt-0 lg:pb-0">
+    <section className="relative w-full min-h-[100dvh] scroll-mt-28 flex flex-col lg:flex-row items-center justify-between overflow-hidden bg-[#020808] text-white pt-28 pb-12 lg:pt-0 lg:pb-0" id="waitlist">
       {/* 
         Background Effects 
         Usage of the brand color #034f46 for deep glows
