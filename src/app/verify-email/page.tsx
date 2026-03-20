@@ -4,9 +4,20 @@ import { headers } from "next/headers";
 import { db } from "@/db";
 import { waitlist } from "@/db/schema";
 import { eq } from "drizzle-orm";
-import { CheckCircle2, Home } from "lucide-react";
+import { Home } from "lucide-react";
 import Link from "next/link";
 import { AnimatedShinyButton } from "@/components/ui/AnimatedButton";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Email Verification",
+  description: "Email verification status page for ReqFix waitlist members.",
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+  },
+};
 
 export default async function VerifyEmailPage() {
   const session = await auth.api.getSession({
@@ -43,12 +54,12 @@ export default async function VerifyEmailPage() {
         </div>
         
         <h1 className="text-4xl md:text-6xl font-serif font-bold tracking-tight text-white leading-[1.1] mb-6">
-          You're on the <span className="text-[#034f46] from-emerald-400 to-emerald-600 font-canela pr-2">list.</span>
+          You&apos;re on the <span className="text-[#034f46] from-emerald-400 to-emerald-600 font-canela pr-2">list.</span>
         </h1>
         
         <p className="text-lg md:text-xl text-neutral-400 max-w-lg leading-relaxed mb-10 font-sans font-light">
           Thanks for verifying your email (<span className="text-emerald-400 font-medium">{session.user?.email}</span>). 
-          We'll be in touch as soon as we're ready to onboard you to ReqFix.
+          We&apos;ll be in touch as soon as we&apos;re ready to onboard you to ReqFix.
         </p>
 
         <Link href="/">
